@@ -11,7 +11,13 @@
 |
 */
 
-
+Route::get('/clear',function(){
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    return redirect('/');
+});
 Auth::routes();
 
 Route::namespace('Web')->group(function (){
