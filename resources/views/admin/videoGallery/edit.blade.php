@@ -23,6 +23,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-2 col-form-label">@if(is_file('uploads/video/'.$video->predefined ?? ''))<a href="/uploads/hizmetler/{{$video->predefined ?? ''}}" target="_blank"><i class="glyphicon glyphicon-file fileinput-exists"></i></a>@endif Ön Tanımlı </label>
+                        <div class="col-10">
+                            <input type="file" name="predefined" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label  class="col-2 col-form-label">Video URL</label>
                         <div class="col-10">
                             <input class="form-control" type="text" value="{{$video->video}}" id="example-text-input" name="video" required>

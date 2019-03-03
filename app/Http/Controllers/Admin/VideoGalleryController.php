@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper;
 use App\videoGallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -43,6 +44,11 @@ class VideoGalleryController extends Controller
 
         $video->name=$request->name;
         $video->description=$request->description;
+        if(!empty($request->predefined)){
+            $newFileName = Helper::fileNameGenerate('uploads/video/', $request->predefined->getClientOriginalName(), $request->predefined->getClientOriginalExtension());
+            $request->predefined->move('uploads/video/' , $newFileName);
+            $video->predefined=$newFileName;
+        }
         $video->video=$request->video;
         if ($video->save()){
             Alert::success('Video Galeri Eklendi!')->persistent("Kapat");
@@ -87,6 +93,11 @@ class VideoGalleryController extends Controller
         $video->name=$request->name;
         $video->description=$request->description;
         $video->video=$request->video;
+        if(!empty($request->predefined)){
+            $newFileName = Helper::fileNameGenerate('uploads/video/', $request->predefined->getClientOriginalName(), $request->predefined->getClientOriginalExtension());
+            $request->predefined->move('uploads/video/' , $newFileName);
+            $video->predefined=$newFileName;
+        }
         if ($video->save()){
             Alert::success('Video Galeri Güncellendi!')->persistent("Kapat");
             return redirect()->back();

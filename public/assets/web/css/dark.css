@@ -1022,9 +1022,9 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 
 #footer.dark,
 .dark #footer {
-	background-color: #100400e6;
+	background-color: #333;
 	color: #fff;
-	border-top-color: 100400e6;
+	border-top-color: #333;
 }
 
 .dark #copyrights {

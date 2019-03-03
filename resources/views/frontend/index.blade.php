@@ -210,11 +210,49 @@
     <!-- Content
     ============================================= -->
     <section id="content">
+        <div class="content-wrap nobottompadding">
 
-        <div class="content-wrap nobottompadding" style="z-index: 1;">
+            <div class="container clearfix">
+                <div class="col_one_fourth">
+                    <div class="feature-box fbox-center fbox-outline fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-crop i-alt"></i></a>
+                        </div>
+                        <h3>Ücretsiz Keşif<span class="subtitle">Arayın Keşif İçin Gelelim</span></h3>
+                    </div>
+                </div>
+                <div class="col_one_fourth">
+                    <div class="feature-box fbox-center fbox-outline fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-crop i-alt"></i></a>
+                        </div>
+                        <h3>Devam Eden Projeler<span class="subtitle">Kriterlere Uygun Projelendirme</span></h3>
+                    </div>
+                </div>
+                <div class="col_one_fourth">
+                    <div class="feature-box fbox-center fbox-outline fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-crop i-alt"></i></a>
+                        </div>
+                        <h3>Projelendirme<span class="subtitle">Kriterlere Uygun Projelendirme</span></h3>
+                    </div>
+                </div>
+                <div class="col_one_fourth">
+                    <div class="feature-box fbox-center fbox-outline fbox-effect nobottomborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-crop i-alt"></i></a>
+                        </div>
+                        <h3>Uygulama Detayları<span class="subtitle">Deneyimli Ekip ile Uygulama</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <div class="container topmargin clearfix">
+        <div class="content-wrap" style="z-index: 1;">
 
+            <div class="container clearfix">
+
+                <div class="clear"></div>
                 <!-- What We Do
                 ============================================= -->
                 <div class="heading-block center noborder" data-heading="ByPoly">
@@ -232,17 +270,17 @@
                     <!-- Features colomns
                     ============================================= -->
                     <div class="row clearfix">
-                        @foreach($hizmetler as $homehizmet)
+                        @foreach($kategoriler as $homekate)
 
-                        <div class="col-lg-6 bottommargin-sm">
+                        <div class="col-lg-4 bottommargin-sm">
                             <div class="feature-box media-box fbox-bg">
                                 <div class="fbox-media">
-                                    <a href="#"><img class="image_fade" src="{{url('/uploads/hizmetler/'.$homehizmet->predefined)}}" alt="{{$homehizmet->name}}"></a>
+                                    <a href="#"><img class="image_fade" src="{{url('/uploads/kategori/'.$homekate->predefined ?? '')}}" alt="{{$homekate->name ?? ''}}"></a>
                                 </div>
                                 <div class="fbox-desc">
-                                    <h3 class="nott ls0 t600">{{$homehizmet->name}}</h3>
-                                    <p>{{ $homehizmet->description }}</p>
-                                    <a href="/hizmetler/{{$homehizmet->slug}}.html" class="button button-small button-circle button-border button-amber">Devamı</a>
+                                    <h4>{{$homekate->title ?? ''}}</h4>
+                                    <p>{{$homekate->description ?? ''}}</p>
+                                    <a href="/kategori/{{$homekate->slug ?? ''}}.html" class="button button-small button-circle button-border button-amber">Devamı</a>
                                 </div>
                             </div>
                         </div>
@@ -251,125 +289,65 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Our Works
-                            ============================================= -->
-            <span class="button button-full center tright">
-                <div class="container clearfix">
-
-                </div>
-            </span>
-            <section id="content">
-
-                <div class="content-wrap nobottompadding">
-
+            <div>
+                <a href="{{route('services')}}" class="button button-full center tright">
                     <div class="container clearfix">
-
-                        <!-- Portfolio Filter
-                        ============================================= -->
-                        <ul id="portfolio-filter" class="portfolio-filter clearfix" data-container="#portfolio">
-                            <li class="activeFilter"><a href="#" data-filter="*">Tüm Projeler</a></li>
-                            @foreach($hizmetler as $hizmet)
-                                <li><a href="#" data-filter=".{{$hizmet->slug}}">{{$hizmet->name}}</a></li>
-                            @endforeach
-                        </ul><!-- #portfolio-filter end -->
-
-                        <div id="portfolio-shuffle" class="portfolio-shuffle" data-container="#portfolio">
-                            <i class="icon-random"></i>
-                        </div>
-
-                        <div class="clear"></div>
-
+                        <strong>HİZMETLER</strong> <i class="icon-caret-right" style="top:4px;"></i>
                     </div>
-
-                    <!-- Portfolio Items
-                    ============================================= -->
-                    <div id="portfolio" class="portfolio grid-container portfolio-6 portfolio-full portfolio-nomargin clearfix">
-                        @foreach($projeler as $proje)
-                            <article class="portfolio-item {{$proje->getService->slug}}">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="{{url('/uploads/proje/'.$proje->predefined)}}" alt="{{$proje->description}}" width="150">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <div class="portfolio-desc">
-                                            <h3><a href="{{url('/uploads/proje/'.$proje->predefined)}}">{{$proje->name}}</a></h3>
-                                        </div>
-                                        <a href="{{url('/uploads/proje/'.$proje->predefined)}}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                    </div>
-                                </div>
-                            </article>
-                        @endforeach
-                    </div><!-- #portfolio end -->
-
-                </div>
-
-            </section><!-- #content end -->
-            <span class="button button-full center tright">
-                <div class="container clearfix">
-
-                </div>
-            </span>
-            <!-- How We Work
-            ============================================= -->
-            <div class="section nobg clearfix">
-                <div class="container clearfix">
-                    <div class="heading-block bottommargin-lg center noborder" data-heading="ByPoly">
-                        <h3 class="nott ls0">Hizmetlerimiz</h3>
-                    </div>
-                </div>
-
-                <!-- How We Work - Carousel
-                ============================================= -->
-                <div id="oc-features" class="owl-carousel owl-carousel-full image-carousel carousel-widget">
-                   @foreach($kategoriler as $homekate)
-                    <div class="oc-item">
-                        <div class="row cleafix">
-                            <div class="col-xl-8">
-                                <img src="{{url('/uploads/kategori/'.$homekate->predefined ?? '')}}" alt="{{$homekate->slug ?? ''}}">
-                            </div>
-                            <div class="col-xl-4" style="padding: 20px 0 0 20px;">
-                                <h3>{{$homekate->title ?? ''}}</h3>
-                                <p>{{$homekate->description ?? ''}}</p>
-                                <a href="/kategori/{{$homekate->slug ?? ''}}.html" class="button button-small button-circle button-border button-amber">Devamı</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
+                </a>
             </div>
 
-            <span class="button button-full center tright">
-                <div class="container clearfix">
-
-                </div>
-            </span>
             <!-- Video Sections
             ============================================= -->
-            <div class="section nobg notopmargin clearfix">
-                <div class="container clearfix">
-                    <div class="row topmargin-lg clearfix">
-                        <div class="col-lg-6">
-                            <!-- Youtube Video Link
-                            ============================================= -->
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$anasayfa->youtube ?? ''}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <!-- Video Texts
-                        ============================================= -->
-                        <div class="col-lg-6">
-                            <div class="heading-block topmargin-sm bottommargin-sm noborder">
-                                <h3 class="nott" style="font-size: 46px; font-weight: 700; letter-spacing: -2px; line-height: 30px">{{$anasayfa->youtube_title}}</h3>
-                            </div>
-                            <p class="t400" data-separator="," data-rotate="fadeInRight" data-speed="3500">{!! $anasayfa->youtube_description ?? '' !!}</p>
-                            <a href="{{route('video_gallery')}}" class="button button-small button-circle button-border button-amber"><i class="icon-video"></i>Video Galeri</a>
-                        </div>
-                    </div>
+        </div>
+
+        <div class="content-wrap" style="z-index: 1;">
+
+            <div class="container clearfix">
+                <div class="clear"></div>
+                <div class="heading-block center noborder" data-heading="ByPoly">
+                    <h3>{{$anasayfa->youtube_title}}</h3>
                 </div>
+                <div class="clear"></div>
+                <div class="center col-lg-8 offset-lg-2">
+                    <h3 class="text-rotater font-secondary" data-separator="," data-rotate="fadeInRight" data-speed="3500">
+                        {!! $anasayfa->youtube_description  !!}
+                    </h3>
+                </div>
+                <!-- Portfolio Items
+                ============================================= -->
+                <div id="portfolio" class="portfolio grid-container clearfix">
+                    @foreach($videolar as $video)
+                    <article class="portfolio-item pf-uielements pf-icons">
+                        <div class="portfolio-image">
+                                <img src="/uploads/video/{{$video->predefined ?? ''}}" alt="{{$video->name}}">
+                            <div class="portfolio-overlay">
+                                <a href="http://www.youtube.com/watch?v={{$video->video}}" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3>{{$video->name}}</h3>
+                        </div>
+                    </article>
+                    @endforeach
+                </div><!-- #portfolio end -->
+
             </div>
 
+        </div>
+
+
+            <div>
+                <a href="{{route('video_gallery')}}" class="button button-full center tright">
+                    <div class="container clearfix">
+                        <strong>VİDEO GALERİ</strong> <i class="icon-caret-right" style="top:4px;"></i>
+                    </div>
+                </a>
+            </div>
             <!-- Brands Carousel
             ============================================= -->
-            <div class="section nomargin clearfix" style="padding: 80px 0">
+            <div class="section nomargin clearfix" style="padding: 40px 0">
                 <div id="oc-clients-full" class="owl-carousel owl-carousel-full image-carousel carousel-widget" data-margin="0" data-nav="false" data-pagi="false" data-loop="true" data-autoplay="3000" data-items-xs="2" data-items-sm="3" data-items-md="5" data-items-lg="5" data-items-xl="5">
                     @foreach($projeler as $proje)
                     <div class="oc-item"><a href="#"><img src="{{url('/uploads/proje/'.$proje->predefined ?? '')}}" style="width: 100px" alt="{{ $proje->title ?? ''}}"></a></div>

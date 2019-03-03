@@ -15,9 +15,7 @@ class StandartPagesController extends Controller
     protected $data=array();
     public function __construct()
     {
-        $this->data['tumkategoriler']=Categories::limit(4)->get();
-        $this->data['menuhizmetler']=Services::select(['name','slug','id'])->where('menu','=','1')->get();
-        $this->data['ayarlar']=Config::find(1);
+
     }
 
     public function about(){

@@ -9,7 +9,7 @@
     <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,400i,600,700|Open+Sans:300,400,600,700,800,900" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/assets/web/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/assets/web/css/style.css" type="text/css" />
-
+    <link rel="stylesheet" href="/assets/web/css/dark.css" type="text/css" />
     <link rel="stylesheet" href="/assets/web/css/swiper.css" type="text/css" />
 
     <!-- Business Demo Specific Stylesheet -->
@@ -70,19 +70,23 @@
                     <ul>
                         <li><a href="{{route('home')}}"><div>Anasayfa</div></a></li>
                         <li><a href="{{route('about')}}"><div>Kurumsal</div></a></li>
-                        <li class="dropdown-menu-right"><a href="{{route('services')}}"><div>Hizmetler</div></a>
-                            <div class="mega-menu-content style-1">
-                                <ul class="mega-menu-column col-lg-6">
-                                    @foreach($menuhizmetler as $menhiz)
-                                        <li class="mega-menu-title"><a href="{{route('service_detail',$menhiz->slug)}}"><div>{{$menhiz->name}}</div></a></li>
-                                    @endforeach
-                                </ul>
+                        <li><a href="{{route('services')}}"><div>Hizmetler</div></a>
+                            <ul>
+                                @foreach($menuhizmetler as $menhiz)
+                                    <li><a href="{{route('service_detail',$menhiz->slug)}}"><div>{{$menhiz->name}}</div></a>
+                                        <ul>
 
-                            </div>
+                                            @foreach($menhiz->alt as $altmen)
+                                            <li><a href="{{route('category_detail',$altmen->category->slug ?? '')}}"><div>{{$altmen->category->title ?? ''}}</div></a>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </li>
                         <li><a href="{{route('projects')}}"><div>Projelerimiz</div></a></li>
                         <li><a href="{{route('video_gallery')}}"><div>Video Galeri</div></a></li>
-                    <!--<li><a href="{{route('blog')}}"><div>Blog</div></a>-->
+                        <li><a href="{{route('blog')}}"><div>Blog</div></a>
                         <li><a href="{{route('contact')}}"><div>İletişim</div></a>
                     </ul>
 
@@ -111,7 +115,7 @@
             ============================================= -->
             <div class="footer-widgets-wrap clearfix">
                 <div class="col_one_fourth">
-                    <img src="/uploads/ByPoly-logo-header.png" alt="By Poly Logo" width="300" style="margin-top: -30px">
+                    <img src="/uploads/logo_footer.png" alt="By Poly Logo" width="300" style="margin-top: -30px">
 
                 </div>
 
@@ -130,7 +134,13 @@
                 <div class="col_two_fourth col_last">
                     <div class="col_one_fourth">
                         <div class="widget widget_links clearfix">
-                            <div class="fb-page" data-href="https://www.facebook.com/bypolyisolation/" data-tabs="events" data-width="200" data-height="75" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/bypolyisolation/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/bypolyisolation/">Bypoly</a></blockquote></div>
+                            <h4>Kurumsal</h4>
+                            <ul>
+                                <li><a href="/kurumsal.html">Hakkımızda</a> </li>
+                                <li><a href="/projeler.html">Hakkımızda</a> </li>
+                                <li><a href="/video-galeri.html">Video Galeri</a> </li>
+                                <li><a href="/iletisim.html">İletişim</a> </li>
+                            </ul>
                         </div>
                     </div>
 
@@ -193,7 +203,8 @@
 <!-- Go To Top
 ============================================= -->
 {{--<div id="gotoTop" class="icon-angle-up"></div>--}}
-
+<a href="tel:{{$ayarlar->phone_fixed}}"><img id="gotoTop" src="/uploads/ara-butonu.png"></a>
+<a href="https://api.whatsapp.com/send?phone=+9{{ str_replace(' ','',$ayarlar->phone_mobile)  }}&text=Merhabalar%20Hizmetleriniz%20Hakkında%20Bilgi%20Almak%20İstiyorum"><img id="whatsapTop" src="/uploads/whatsapp.png"></a>
 <!-- External JavaScripts
 ============================================= -->
 <script src="/assets/web/js/jquery.js"></script>
@@ -217,8 +228,6 @@
     });
 </script>
 
-<div id="fb-root"></div>
-<script async defer src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v3.2"></script>
 @yield('js')
 <!-- Footer Scripts
 ============================================= -->

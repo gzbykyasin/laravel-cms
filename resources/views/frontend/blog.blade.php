@@ -30,27 +30,25 @@
                     <!-- Posts
                     ============================================= -->
                     <div id="posts">
-
+                        @foreach($yazilar as $yazi)
                         <div class="entry clearfix">
                             <div class="entry-image">
-                                <a href="/assets/web/images/blog/full/17.jpg" data-lightbox="image"><img class="image_fade" src="/assets/web/images/blog/standard/17.jpg" alt="Standard Post with Image"></a>
+                                <a href="/uploads/blog/{{$yazi->predefined}}" data-lightbox="{{$yazi->title}}"><img class="image_fade" src="/uploads/blog/{{$yazi->predefined}}" alt="{{$yazi->title}}"></a>
                             </div>
                             <div class="entry-title">
-                                <h2><a href="{{route('blog_detail','deneme')}}">This is a Standard post with a Preview Image</a></h2>
+                                <h2><a href="{{route('blog_detail',$yazi->slug)}}">{{$yazi->title}}</a></h2>
                             </div>
                             <ul class="entry-meta clearfix">
-                                <li><i class="icon-calendar3"></i> 10th February 2014</li>
-                                <li><a href="#"><i class="icon-user"></i> admin</a></li>
-                                <li><i class="icon-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li>
-                                <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13 Comments</a></li>
+                                <li><i class="icon-calendar3"></i> {{ strftime('%d %B %Y',strtotime($yazi->created_at)) }}</li>
+                                <li><a href="#"><i class="icon-user"></i> {{ $yazi->author }}</a></li>
                                 <li><a href="#"><i class="icon-camera-retro"></i></a></li>
                             </ul>
                             <div class="entry-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.</p>
-                                <a href="{{route('blog_detail','deneme')}}"class="more-link">Devamı</a>
+                                {!! $yazi->data  !!}
+                                <a href="{{route('blog_detail',$yazi->slug)}}"class="more-link">Devamı</a>
                             </div>
                         </div>
-
+                        @endforeach
                     </div><!-- #posts end -->
 
                 </div><!-- .postcontent end -->
@@ -66,59 +64,30 @@
 
                                 <ul class="tab-nav clearfix">
                                     <li><a href="#tabs-1">Popüler</a></li>
-                                    <li><a href="#tabs-2">Son Yazılar</a></li>
+                                   {{-- <li><a href="#tabs-2">Son Yazılar</a></li>--}}
                                 </ul>
 
                                 <div class="tab-container">
 
                                     <div class="tab-content clearfix" id="tabs-1">
                                         <div id="popular-post-list-sidebar">
-
+                                            @foreach($yazilar as $yazi)
                                             <div class="spost clearfix">
                                                 <div class="entry-image">
-                                                    <a href="#" class="nobg"><img class="rounded-circle" src="/assets/web/images/magazine/small/3.jpg" alt=""></a>
+                                                    <a href="{{route('blog_detail',$yazi->slug)}}" class="nobg"><img class="rounded-circle" src="/uploads/blog/{{$yazi->predefined}}" alt="{{$yazi->title}}"></a>
                                                 </div>
                                                 <div class="entry-c">
                                                     <div class="entry-title">
-                                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+                                                        <h4><a href="#">{{$yazi->title}}</a></h4>
                                                     </div>
-                                                    <ul class="entry-meta">
-                                                        <li><i class="icon-comments-alt"></i> 35 Comments</li>
-                                                    </ul>
+                                                    <p>{{$yazi->description}}</p>
                                                 </div>
                                             </div>
-
-                                            <div class="spost clearfix">
-                                                <div class="entry-image">
-                                                    <a href="#" class="nobg"><img class="rounded-circle" src="/assets/web/images/magazine/small/2.jpg" alt=""></a>
-                                                </div>
-                                                <div class="entry-c">
-                                                    <div class="entry-title">
-                                                        <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-                                                    </div>
-                                                    <ul class="entry-meta">
-                                                        <li><i class="icon-comments-alt"></i> 24 Comments</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <div class="spost clearfix">
-                                                <div class="entry-image">
-                                                    <a href="#" class="nobg"><img class="rounded-circle" src="/assets/web/images/magazine/small/1.jpg" alt=""></a>
-                                                </div>
-                                                <div class="entry-c">
-                                                    <div class="entry-title">
-                                                        <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                                    </div>
-                                                    <ul class="entry-meta">
-                                                        <li><i class="icon-comments-alt"></i> 19 Comments</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            @endforeach
 
                                         </div>
                                     </div>
-                                    <div class="tab-content clearfix" id="tabs-2">
+                                 {{--   <div class="tab-content clearfix" id="tabs-2">
                                         <div id="recent-post-list-sidebar">
 
                                             <div class="spost clearfix">
@@ -164,7 +133,7 @@
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div>--}}
 
                                 </div>
 

@@ -24,6 +24,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label  class="col-2 col-form-label">Ön Tanımlı Resim</label>
+                        <div class="col-10">
+                            <input type="file" name="predefined" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label  class="col-2 col-form-label">Video URL</label>
                         <div class="col-10">
                             <input class="form-control" type="text" placeholder="Video URL" id="example-text-input" name="video" required>

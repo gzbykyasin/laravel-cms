@@ -31,7 +31,7 @@
                             <img src="{{url('/uploads/hizmetler/'.$serv->getService->predefined ?? '')}}" alt="{{$serv->getService->title ?? ''}}">
                         </div>
                         <div class="fbox-desc">
-                            <h2><b>{{$serv->getService->title ?? ''}}</b></h2>
+
                             {!!  $serv->getService->data  !!}
                             <br>
                             <a href="/hizmetler/{{$serv->getService->slug ?? ''}}.html" class="button button-small button-circle button-border button-amber">Devamı</a>

@@ -77,7 +77,7 @@
                                     </a>
                                     <div class="portfolio-overlay">
                                         <a href="{{url('/uploads/proje/'.$proje->predefined)}}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="{{url('/uploads/proje/'.$proje->predefined)}}" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+
                                     </div>
                                 </div>
                                 <div class="portfolio-desc">

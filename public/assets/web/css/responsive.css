@@ -4,7 +4,11 @@
 
 
 @media (max-width: 1199px) {
-
+    #whatsapTop {
+        display: block;
+        left: 10px;
+        right: auto;
+    }
 	canvas {
 		max-width: 100%;
 		height: auto !important;
@@ -384,7 +388,7 @@
 
 	#primary-menu > ul > li.sub-menu > a,
 	#primary-menu > .container > ul > li.sub-menu > a {
-		background-image: url("../images/icons/submenu.png");
+		background-image: url("/assets/web/images/icons/submenu.png");
 		background-position: right center;
 		background-repeat: no-repeat;
 	}
@@ -996,7 +1000,12 @@
 
 	.swiper_wrapper:not(.full-screen):not(.canvas-slider-grid),
 	.swiper_wrapper:not(.full-screen):not(.canvas-slider-grid) .swiper-slide { height: 400px !important; }
-
+    #gotoTop {
+        display: block;
+    }
+     #whatsapTop {
+         display: block;
+     }
 	.sidebar-widgets-wrap {
 		position: relative;
 		margin: 0 -20px -40px -20px;
@@ -1026,7 +1035,14 @@
 @media (max-width: 767px) {
 
 	body { padding: 0 !important; }
+    #gotoTop {
+        display: block;
+    }
 
+    #whatsapTop {
+        display: block;
+        left: auto;
+    }
 	#wrapper { width: 100% !important; }
 
 	.container-fullwidth {
@@ -1384,7 +1400,11 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-
+    #whatsapTop {
+        display: block;
+        right: 106px;
+        left: auto;
+    }
 	#header.full-header .container,
 	.container-fullwidth { width: 540px !important; }
 
@@ -1493,7 +1513,11 @@
 }
 
 @media (max-width: 575px) {
-
+    #whatsapTop {
+        display: block;
+        right: 106px;
+        left: auto;
+    }
 	.container,
 	#header.full-header .container,
 	.container-fullwidth {
