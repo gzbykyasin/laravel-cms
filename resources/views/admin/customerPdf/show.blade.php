@@ -32,7 +32,7 @@
         }
         * {
             box-sizing: border-box;
-            font-family: "DejaVu Sans", sans-serif;
+            font-family: "Open Sans", sans-serif;
         }
 
         /* Create three equal columns that floats next to each other */

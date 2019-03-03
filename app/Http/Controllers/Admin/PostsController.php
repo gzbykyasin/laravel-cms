@@ -53,7 +53,7 @@ class PostsController extends Controller
         $yazi->keywords=$request->keywords;
         $yazi->author=$request->author;
         $yazi->data=$request->data;
-
+        $yazi->tags=$request->tags;
         if(!empty($request->predefined)){
             $newFileName = Helper::fileNameGenerate('uploads/blog/', $request->predefined->getClientOriginalName(), $request->predefined->getClientOriginalExtension());
             $request->predefined->move('uploads/blog/' , $newFileName);
@@ -115,6 +115,7 @@ class PostsController extends Controller
         $yazi->keywords=$request->keywords;
         $yazi->author=$request->author;
         $yazi->data=$request->data;
+        $yazi->tags=$request->tags;
 
         if(!empty($request->predefined)){
             $newFileName = Helper::fileNameGenerate('uploads/blog/', $request->predefined->getClientOriginalName(), $request->predefined->getClientOriginalExtension());

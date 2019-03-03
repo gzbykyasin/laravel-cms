@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<html dir="ltr" lang="tr-TR">
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -204,7 +204,7 @@
 ============================================= -->
 {{--<div id="gotoTop" class="icon-angle-up"></div>--}}
 <a href="tel:{{$ayarlar->phone_fixed}}"><img id="gotoTop" src="/uploads/ara-butonu.png"></a>
-<a href="https://api.whatsapp.com/send?phone=+9{{ str_replace(' ','',$ayarlar->phone_mobile)  }}&text=Merhabalar%20Hizmetleriniz%20Hakkında%20Bilgi%20Almak%20İstiyorum"><img id="whatsapTop" src="/uploads/whatsapp.png"></a>
+<a href="https://api.whatsapp.com/send?phone=9{{ str_replace(' ','',$ayarlar->phone_mobile)  }}&text=Merhabalar%20Hizmetleriniz%20Hakkında%20Bilgi%20Almak%20İstiyorum&conversion=home"><img id="whatsapTop" src="/uploads/whatsapp.png"></a>
 <!-- External JavaScripts
 ============================================= -->
 <script src="/assets/web/js/jquery.js"></script>

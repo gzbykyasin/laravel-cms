@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Categories;
 use App\Config;
+use App\GalleryPhotos;
 use App\Post;
 use App\Services;
 use Carbon\Carbon;
@@ -28,6 +29,7 @@ class BlogController extends Controller
     public function blog_detail($slug){
         $slug=str_replace('.html','',$slug);
         $this->data['yazi']=Post::where('slug',$slug)->first();
+        $this->data['resimler']=GalleryPhotos::where('gallery_id',$this->data['yazi']->gallery_id)->get();
         $this->data['hizmetlerimiz']=Services::select(['name','slug','predefined','title'])->get();
         /*dump($slug);*/
        // dd($this->data);

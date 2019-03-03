@@ -50,6 +50,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label  class="col-2 col-form-label">Etiketler</label>
+                        <div class="tags-default">
+                            <input type="text" value="Etiket1,Etiket2,Etiket3" data-role="tagsinput" placeholder="etiket ekle" name="tags"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label   class="col-2 col-form-label">Ön Tanımlı Resim</label>
                         <div class="col-10">
                             <input type="file" name="predefined" class="form-control" required>
@@ -122,8 +128,10 @@
             });
         });
     </script>
+    <script src="/assets/admin/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 @endsection
 @section('css')
     <link href="/assets/admin/plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/admin/plugins/bower_components/html5-editor/bootstrap-wysihtml5.css" />
+    <link href="/assets/admin/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
 @endsection

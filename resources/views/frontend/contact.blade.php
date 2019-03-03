@@ -5,7 +5,7 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>İletişim</h1>
+            <h1>İLETİŞİM</h1>
             <span>ByPoly olarak yeni teknolojileri takip ederek müşteri memnuniyeti ve çözüm odaklı çalışmalarımızı sürdürüyoruz</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('/')}}">Anasayfa</a></li>

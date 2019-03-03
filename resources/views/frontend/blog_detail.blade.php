@@ -5,7 +5,7 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Blog Single</h1>
+            <h1>{{str_replace('|',' ',$yazi->title ?? '|')}}</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
                 <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
@@ -33,19 +33,26 @@
                         ============================================= -->
                         <div class="entry clearfix">
 
-                            <!-- Entry Title
-                            ============================================= -->
-                            <div class="entry-title">
-                                <h2>{{str_replace('|',' ',$yazi->title ?? '|')}}</h2>
-                            </div><!-- .entry-title end -->
+
 
                             <!-- Entry Image
                             ============================================= -->
-                            <div class="entry-image">
-                                <a href="#"><img src="/uploads/blog/{{$yazi->predefined}}" alt="{{str_replace('|',' ',$yazi->title ?? '|')}}"></a>
-
+                            <div class="col_full portfolio-single-image">
+                                <div class="fslider" data-arrows="true" data-animation="slide">
+                                    <div class="flexslider">
+                                        <div class="slider-wrap">
+                                            @foreach($resimler as $resim)
+                                                <div class="slide"><a href="{{url('/uploads/galeri/'.$resim->photo ?? '')}}"><img src="{{url('/uploads/galeri/'.$resim->photo ?? '')}}" alt="{{$resim->photo_alt ?? ''}}"></a></div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                             </div><!-- .entry-image end -->
-
+                            <!-- Entry Title
+                                                      ============================================= -->
+                            <div class="entry-title">
+                                <h2>{{str_replace('|',' ',$yazi->title ?? '|')}}</h2>
+                            </div><!-- .entry-title end -->
                             <!-- Entry Content
                             ============================================= -->
                             <div class="entry-content notopmargin">
@@ -55,24 +62,20 @@
 
                                 <!-- Tag Cloud
                                 ============================================= -->
-                                <!--
-                                                                    <div class="tagcloud clearfix bottommargin">
-                                                                        <a href="#">general</a>
-                                                                        <a href="#">information</a>
-                                                                        <a href="#">media</a>
-                                                                        <a href="#">press</a>
-                                                                        <a href="#">gallery</a>
-                                                                        <a href="#">illustration</a>
-                                                                    </div>
-                                                                     -->
+
+                                    <div class="tagcloud clearfix bottommargin">
+                                        @php($tags=explode(',',$yazi->tags))
+                                        @foreach($tags as $tag)
+                                        <a>{{$tag ?? ''}}</a>
+                                        @endforeach
+                                    </div>
+
                                 <!-- .tagcloud end -->
 
                                 <!-- <div class="clear"></div>								 -->
 
                             </div>
                         </div><!-- .entry end -->
-
-                        <div class="line"></div>
 
                     </div>
 

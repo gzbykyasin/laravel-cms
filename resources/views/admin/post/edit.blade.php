@@ -53,6 +53,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label  class="col-2 col-form-label">Etiketler</label>
+                    <div class="col-10">
+                        <input type="text" value="{{$yazi->tags ?? ''}}" data-role="tagsinput" placeholder="etiket ekle" name="tags"/>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-2 col-form-label">@if(is_file('uploads/blog/'.$yazi->predefined))<a href="/uploads/blog/{{$yazi->predefined}}" target="_blank"><i class="glyphicon glyphicon-file fileinput-exists"></i></a>@endif Ön Tanımlı </label>
                     <div class="col-10">
                         <input type="file" name="predefined" class="form-control">
@@ -140,8 +146,11 @@
             });
         });
     </script>
+    <script src="/assets/admin/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 @endsection
 @section('css')
     <link href="/assets/admin/plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/admin/plugins/bower_components/html5-editor/bootstrap-wysihtml5.css" />
+    <link href="/assets/admin/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+
 @endsection

@@ -31,7 +31,7 @@
                         <div class="fbox-desc">
                             <h3>{{$kategori->title ?? ''}}</h3>
                             <p>{{ $kategori->description }}</p>
-                            <a href="/kategori/{{$kategori->slug ?? ''}}" class="button button-small button-circle button-border button-amber">Devamı</a>
+                            <a href="/kategori/{{$kategori->slug ?? ''}}.html" class="button button-small button-circle button-border button-amber">Devamı</a>
                         </div>
                     </div>
                 </div>
