@@ -3,23 +3,27 @@
 
 ## About Laravel CMS Project
 
-This project is a simple Company Script. 
+This project is a simple Company Script project. There are only backend codes and you must create the frontend part. You can create your database by making a migration and start your operations. Below you can see how to download the project and how to run the script. Plenty of coding. 
 
 
-## Learning Laravel
+## Project Startup Stages
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+First, download the current repository to your computer 
+git clone https://github.com/gzbykyasin/laravel-cms.git
+Then change the .env.examle file to .env.
+Enter your database information .env file for localhost.
+Run these commands from the console, respectively
+<pre>
+php artisan key:generate
+php artisan config:cache
+php artisan migrate
+</pre>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost you and your team's skills by digging into our comprehensive video library.
 
+## Communication for Bug Fix
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you find any errors and errors related to the project, you can contact us by email.
+[gzbyk.yasinn@gmail.com](mailto:gzbyk.yasinn@gmail.com)
 
 ## License
 
