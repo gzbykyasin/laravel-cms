@@ -14,6 +14,7 @@ Then change the .env.examle file to .env.
 Enter your database information .env file for localhost.
 Run these commands from the console, respectively
 <pre>
+composer install
 php artisan key:generate
 php artisan config:cache
 php artisan migrate
